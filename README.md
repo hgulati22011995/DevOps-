@@ -1,119 +1,72 @@
-My Cloud & DevOps Learning Journey
-==================================
+# My DevOps & Cloud Learning Journey 🚀
 
-Welcome to my personal repository for notes, resources, and practice programs related to my ongoing journey in cloud computing and DevOps! This repository serves as a central hub for my learnings from various platforms and courses.
+Welcome to my personal repository! This is where I document my entire journey into the world of DevOps and Cloud technologies. It serves as a living journal of my notes, practice files, scripts, and command references as I learn and grow in this field.
 
-Table of Contents
------------------
+---
 
-*   [AWS Cloud Practitioner Essentials](#aws-cloud-practitioner-essentials)
-    
-*   [AWS Cloud Quest Practitioner](#aws-cloud-quest-practitioner)
-    
-*   [Linux](#linux)
-    
-*   [Networking](#networking)
-    
-*   [Git & GitHub](#git--github)
-    
-*   [Shell Scripting](#shell-scripting)
-    
+## What's Inside This Repository?
 
-AWS Cloud Practitioner Essentials
----------------------------------
+This repository is organized by topic. Here's a quick breakdown of what you'll find in each directory:
 
-This section contains my notes and summaries from the AWS Cloud Practitioner Essentials course. It covers fundamental concepts of AWS Cloud, including:
+* [100 Days of DevOps KodeKloud](./100%20Days%20of%20DevOps%20KodeKloud)
+* [AWS](./AWS)
+* [Ansible](./Ansible/Practice)
+* [DevOps Commands](./DevOps%20Commands)
+* [Docker Notes](./Docker%20Notes)
+* [Git & GitHub](./Git%20&%20GitHub)
+* [Jenkins](./Jenkins)
+* [Linux](./Linux)
+* [Networking](./Networking)
+* [Prometheus & Grafana](./Prometheus%20&%20Grafana)
+* [Shell Scripting](./Shell%20Scripting)
+* [Terraform](./Terraform)
 
-*   Cloud concepts
-    
-*   AWS global infrastructure
-    
-*   AWS services (compute, storage, networking, database, security)
-    
-*   Security and compliance
-    
-*   Billing and pricing
-    
-*   Technical support
-    
+---
 
-AWS Cloud Quest Practitioner
-----------------------------
+### **100 Days of DevOps KodeKloud**
 
-Here you'll find notes and insights gained from playing AWS Cloud Quest, a role-playing game designed to help you learn and practice AWS concepts in an engaging way. This includes practical application of:
+This directory contains my daily, day-wise notes as I take on the **100 Days of DevOps challenge** from KodeKloud. It tracks my progress and key takeaways from each day's lesson.
 
-*   Core AWS services in a gamified environment
-    
-*   Troubleshooting common scenarios
-    
-*   Best practices for solution design
-    
+### **AWS**
 
-Linux
------
+Here I keep a collection of my notes on various **Amazon Web Services (AWS)** concepts, services, and best practices I'm learning.
 
-This directory holds my in-depth notes on various Linux topics, structured by daily learning and specific concepts:
+### **Ansible**
 
-*   **Linux\_Day01.md**: Covers Linux fundamentals, including internet workings, server types, application classifications, Linux architecture (Kernel, Bootloader, Shell), file system hierarchy, and process states.
-    
-*   **Linux\_Day02.md**: Focuses on essential Linux commands for navigation, file/directory management, viewing/writing files, advanced utilities (cp, mv, wc, ln, cut, tee, sort, diff, vi), SSH, disk usage, and process management.
-    
-*   **Linux\_Day03.md**: Details Linux system-level commands, user/group management, and file permissions. Topics include uname, uptime, date, who, sudo, shutdown, package managers, chmod/chown, umask, compression, and file transfer (scp, rsync).
-    
-*   **Linux\_Day04.md**: Explores Linux networking commands crucial for troubleshooting, such as ping, netstat, ifconfig, traceroute, nslookup, telnet, hostname, ip address show, dig, whois, nc, arp, curl, wget, iptables, watch, nmap, and route.
-    
-*   **Linux\_Day05.md**: Provides detailed explanations and DevOps use cases for powerful text-processing tools: awk, sed, and grep, including a comparison of their strengths.
-    
-*   **Linux\_Volume\_Management.md**: An in-depth guide to Linux volume management, covering AWS EBS integration, hands-on volume creation/attachment to EC2, and Logical Volume Management (LVM) with Physical Volumes (PVs), Volume Groups (VGs), and Logical Volumes (LVs).
-    
+This section contains my hands-on **Ansible practice files** and playbooks, where I experiment with configuration management and automation.
 
-Networking
-----------
+### **DevOps Commands**
 
-This section is dedicated to my networking notes, covering foundational concepts relevant to cloud environments and system administration, such as:
+A quick reference guide and cheat sheet for essential commands across different DevOps tools, including **Linux, Git, Docker, and Terraform**. It's my go-to place for command syntax.
 
-*   OSI model
-    
-*   Localhost
-    
+### **Docker Notes**
 
-Git & GitHub
-------------
+You'll find my **day-wise notes on Docker**, covering everything from basic concepts like containers and images to more advanced topics.
 
-Here you'll find my notes and practical examples related to Git version control and GitHub workflows. Topics include:
+### **Git & GitHub**
 
-*   Git basics (add, commit, push, pull)
-    
-*   Branching and merging
+My personal notes and command references for **Git version control** and effective GitHub workflows are stored here.
 
-    
+### **Jenkins**
 
-Shell Scripting
----------------
+This section holds my notes on the **Jenkins automation server**, including concepts like CI/CD and practical examples like creating Declarative Pipelines.
 
-This directory contains notes and various shell scripts I've developed and practiced, ranging from basic automation tasks to more complex system utilities. Each script is typically commented to explain its purpose and functionality.
+### **Linux**
 
-**Basic Scripts 1-10:**
+Here I maintain my **day-wise study notes** on the Linux operating system, from fundamental commands to system administration topics.
 
-*   `First\_Program01.sh`: A simple "Hello World" script.
-    
-*   `Program02.sh`: Take input from user and add those 2 numbers
-    
-*   `Program03.sh`: Take one number from user and check that number is even or odd, and then display message accordingly.
-    
-*   `Program04.sh`: Take three numbers from user and find largest out of three and print message.
-    
-*   `Program05.sh`: Take one number from user and print multiplication table of given number.
-    
-*   `Program06.sh`: Calculate Factorial
-    
-*   `Program07.sh`: Check whether given string is palindrome or not
-    
-*   `Program08.sh`: Print Fibonacci Series
-    
-*   `Program09.sh`: Check whether given number is prime or not.
-    
-*   `Program010.sh`: Calculate sum of digits of a given number.
-    
+### **Networking**
 
-Feel free to explore the content and provide any feedback!
+This directory is dedicated to my notes on core **networking concepts** that are vital for cloud and DevOps, such as ports, protocols, VPC, DNS, CDNs, and more.
+
+### **Prometheus & Grafana**
+
+My notes and configuration examples for setting up powerful monitoring and visualization dashboards using **Prometheus and Grafana**.
+
+### **Shell Scripting**
+
+A collection of various **shell scripts** I've written for practice, along with my personal notes on shell scripting principles and best practices.
+
+### **Terraform**
+
+This is where I put my **Terraform practice files**. I use this to get hands-on experience with **Infrastructure as Code (IaC)** to provision and manage cloud resources.
