@@ -1,5 +1,6 @@
-
-<h1 align="center">My DevOps & Cloud Learning Journey 🚀</h1>
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=FFFFFF&height=200&section=header&text=My%20DevOps%20and%20Cloud%20Journey%20🎯&fontSize=50&fontColor=4584b6" alt="Header Banner"/>
+</p>
 
 
 <p align="center">
