@@ -1,0 +1,1 @@
+[001. Write a program to take 2 number inputs from user and interchange the values.](<05 Oct 2025/001.py>)
