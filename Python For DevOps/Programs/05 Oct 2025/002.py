@@ -1,5 +1,4 @@
 '''
-Additional 01_2: 
 Write a program to take 4 digit number from user and print sum of first and last digit.
 Ex. 2368 = 2 + 8 = 10
 '''
