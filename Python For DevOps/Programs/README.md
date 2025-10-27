@@ -8,9 +8,9 @@ Focus: Input/Output, Arithmetic, and Basic Variable Manipulation.
 
 | \# | Program Description (Focus) | Category | Filename |
 | :-: | :--- | :--- | :--- |
-| **1** | Swap the values of two variables (using temporary variable AND Python tuple unpacking). | A. Basics | `A01_swap_values.py` |
-| **2** | Calculate the sum of the first and last digit of a 4-digit integer. | A. Basics | `A02_digit_sum.py` |
-| **3** | Convert distance in Kilometers (km) to Centimeters (cm), Meters, Feet, and Inches. | A. Basics | `A03_unit_convert.py` |
+| **1** | Swap the values of two variables (using temporary variable AND Python tuple unpacking). | A. Basics | <a href="/Programs/620 Program Practice/Day 01 Python Basics and Simple Math (11 Programs)/A01_swap_values.py">A01_swap_values.py</a> |
+| **2** | Calculate the sum of the first and last digit of a 4-digit integer. | A. Basics | <a href="620 Program Practice/Day 01 Python Basics and Simple Math (11 Programs)/A02_digit_sum.py">A02_digit_sum.py</a> |
+| **3** | Convert distance in Kilometers (km) to Centimeters (cm), Meters, Feet, and Inches. | A. Basics | <a href="620 Program Practice/Day 01 Python Basics and Simple Math (11 Programs)/A03_unit_convert.py">A03_unit_convert.py</a> |
 | **4** | Implement a simple calculator: take two numbers and an operator (+, -, \*, /) as input and display the result. | A. Basics | `A04_simple_calc.py` |
 | **5** | Calculate the **Simple Interest (SI)** given Principal, Rate, and Time. | A. Math | `A05_simple_interest.py` |
 | **6** | Calculate the **Compound Interest (CI)** given Principal, Rate, and Time. | A. Math | `A06_compound_interest.py` |
