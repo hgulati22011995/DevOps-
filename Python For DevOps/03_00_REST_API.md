@@ -1,45 +1,43 @@
+<center><h1> Mastering REST APIs<br>A Comprehensive Guide for DevOps</h1></center>
+<br>
 
-# Mastering REST APIs: A Comprehensive Guide for DevOps
-
-In the world of modern software and infrastructure, nearly everything is connected through APIs (Application Programming Interfaces). For a DevOps engineer, understanding REST (REpresentational State Transfer) APIs is not just a useful skill—it is an absolute necessity. REST is the architectural style that powers the vast majority of web services, from cloud providers and CI/CD tools to monitoring platforms. This guide provides a complete, zero-to-hero walkthrough of REST API principles and practices.
+This guide offers a comprehensive overview of REST API principles and practices, emphasizing the importance of understanding them for DevOps engineers, as REST is the architectural style that powers most web services, including cloud providers, CI/CD tools, and monitoring platforms.
 
 ---
 
 ### Table of Contents
-- [Mastering REST APIs: A Comprehensive Guide for DevOps](#mastering-rest-apis-a-comprehensive-guide-for-devops)
-    - [Table of Contents](#table-of-contents)
-  - [Part 1: The Absolute Basics](#part-1-the-absolute-basics)
-    - [What is an API?](#what-is-an-api)
-    - [What is REST?](#what-is-rest)
-    - [Why REST is Critical for DevOps](#why-rest-is-critical-for-devops)
-  - [How HTTP Works?](#how-http-works)
-  - [Part 2: The Core Principles of REST](#part-2-the-core-principles-of-rest)
-    - [Client-Server Architecture](#client-server-architecture)
-    - [Statelessness](#statelessness)
-    - [Uniform Interface](#uniform-interface)
-  - [Part 3: Anatomy of an API Interaction](#part-3-anatomy-of-an-api-interaction)
-    - [The Request: What the Client Sends](#the-request-what-the-client-sends)
-    - [The Response: What the Server Sends Back](#the-response-what-the-server-sends-back)
-  - [Part 4: HTTP Methods - The Verbs of REST](#part-4-http-methods---the-verbs-of-rest)
-    - [`GET`: Retrieve a Resource](#get-retrieve-a-resource)
-    - [`POST`: Create a New Resource](#post-create-a-new-resource)
-    - [`PUT`: Replace a Resource](#put-replace-a-resource)
-    - [`PATCH`: Partially Update a Resource](#patch-partially-update-a-resource)
-    - [`DELETE`: Remove a Resource](#delete-remove-a-resource)
-  - [Part 5: HTTP Status Codes - The API's Feedback](#part-5-http-status-codes---the-apis-feedback)
-    - [Understanding Code Categories (2xx, 4xx, 5xx)](#understanding-code-categories-2xx-4xx-5xx)
-  - [Part 6: Authentication and Security](#part-6-authentication-and-security)
-    - [Basic Authentication](#basic-authentication)
-    - [API Keys](#api-keys)
-    - [OAuth 2.0 and Bearer Tokens](#oauth-20-and-bearer-tokens)
-  - [Part 7: Best Practices in API Design and Usage](#part-7-best-practices-in-api-design-and-usage)
-    - [URI Naming Conventions](#uri-naming-conventions)
-    - [API Versioning](#api-versioning)
-    - [Pagination, Filtering, and Sorting](#pagination-filtering-and-sorting)
-  - [Part 8: Practical DevOps Tooling](#part-8-practical-devops-tooling)
-    - [Using `curl` for Command-Line API Interaction](#using-curl-for-command-line-api-interaction)
-    - [Using Postman for GUI-Based API Exploration](#using-postman-for-gui-based-api-exploration)
-  - [Conclusion](#conclusion)
+- [Part 1: The Absolute Basics](#part-1-the-absolute-basics)
+  - [What is an API?](#what-is-an-api)
+  - [What is REST?](#what-is-rest)
+  - [Why REST is Critical for DevOps](#why-rest-is-critical-for-devops)
+- [How HTTP Works?](#how-http-works)
+- [Part 2: The Core Principles of REST](#part-2-the-core-principles-of-rest)
+  - [Client-Server Architecture](#client-server-architecture)
+  - [Statelessness](#statelessness)
+  - [Uniform Interface](#uniform-interface)
+- [Part 3: Anatomy of an API Interaction](#part-3-anatomy-of-an-api-interaction)
+  - [The Request: What the Client Sends](#the-request-what-the-client-sends)
+  - [The Response: What the Server Sends Back](#the-response-what-the-server-sends-back)
+- [Part 4: HTTP Methods - The Verbs of REST](#part-4-http-methods---the-verbs-of-rest)
+  - [`GET`: Retrieve a Resource](#get-retrieve-a-resource)
+  - [`POST`: Create a New Resource](#post-create-a-new-resource)
+  - [`PUT`: Replace a Resource](#put-replace-a-resource)
+  - [`PATCH`: Partially Update a Resource](#patch-partially-update-a-resource)
+  - [`DELETE`: Remove a Resource](#delete-remove-a-resource)
+- [Part 5: HTTP Status Codes - The API's Feedback](#part-5-http-status-codes---the-apis-feedback)
+  - [Understanding Code Categories (2xx, 4xx, 5xx)](#understanding-code-categories-2xx-4xx-5xx)
+- [Part 6: Authentication and Security](#part-6-authentication-and-security)
+  - [Basic Authentication](#basic-authentication)
+  - [API Keys](#api-keys)
+  - [OAuth 2.0 and Bearer Tokens](#oauth-20-and-bearer-tokens)
+- [Part 7: Best Practices in API Design and Usage](#part-7-best-practices-in-api-design-and-usage)
+  - [URI Naming Conventions](#uri-naming-conventions)
+  - [API Versioning](#api-versioning)
+  - [Pagination, Filtering, and Sorting](#pagination-filtering-and-sorting)
+- [Part 8: Practical DevOps Tooling](#part-8-practical-devops-tooling)
+  - [Using `curl` for Command-Line API Interaction](#using-curl-for-command-line-api-interaction)
+  - [Using Postman for GUI-Based API Exploration](#using-postman-for-gui-based-api-exploration)
+- [Conclusion](#conclusion)
 
 ---
 
@@ -50,7 +48,8 @@ In the world of modern software and infrastructure, nearly everything is connect
 ### What is an API?
 
 <a name="what-is-an-api"></a>
-An API is a set of rules and protocols that allows different software applications to communicate with each other. It defines the methods and data formats that applications can use to request and exchange information. Think of it as a waiter in a restaurant: you (the client) don't go directly into the kitchen (the server) to get your food. Instead, you give your order to the waiter (the API), who communicates with the kitchen and brings your food back to you.
+- An API is a set of rules and protocols that allows different software applications to communicate with each other. It defines the methods and data formats that applications can use to request and exchange information. 
+- Think of it as a waiter in a restaurant: you (the client) don't go directly into the kitchen (the server) to get your food. Instead, you give your order to the waiter (the API), who communicates with the kitchen and brings your food back to you.
 
 ### What is REST?
 
@@ -80,15 +79,10 @@ Mastering REST APIs is mastering the language of automation.
 ![alt text](Diagrams/03_how_http_works.png)
 
 - **Client sends a request** – Your browser (client) asks the server for a page or resource using an HTTP request (like GET /index.html).
-
 - **Server receives the request** – The web server gets your request.
-
 - **Server processes it** – The server finds the file, runs any scripts if needed, and prepares a response.
-
 - **Server sends a response** – The server replies with an HTTP response, including the status (like 200 OK), headers (content type, length), and the actual content (HTML, JSON, etc.).
-
 - **Client receives and renders** – Your browser gets the response and displays the webpage.
-
 - **In short**: HTTP is a request-response system where the client asks, the server responds, and the web page gets displayed.
 
 ---
