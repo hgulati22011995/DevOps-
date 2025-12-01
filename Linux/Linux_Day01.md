@@ -1,4 +1,6 @@
-# Linux Fundamentals: Day 01
+<h1><center> Linux Fundamentals: Day 01 </center></h1>
+
+<br>
 
 This document covers fundamental concepts related to how the internet works, server types, application classifications, and an introduction to Linux, including its architecture, file system, and process management.
 
@@ -27,6 +29,8 @@ This document covers fundamental concepts related to how the internet works, ser
 <section id=01>
 
 ## How Does the Internet Work?
+
+![alt text](SS_02/how_does_the_internet_works.png)
 
 When we access online content like YouTube videos or browse websites, it might seem like data comes directly from a satellite. In reality, the internet's infrastructure is more complex and relies heavily on physical connections.
 
@@ -63,11 +67,16 @@ When you open YouTube:
 
 ---
 
+<br>
+<br>
+
 <section id=02>
 
 ## What is a Server?
 
 A **server** is simply a computer whose primary function is to **serve** information or resources to other computers or devices, known as **clients**. Whenever you make a request—like opening a website, checking email, or saving a file online—a server processes that request and sends back the correct response.
+
+![alt text](SS_02/server_client.png)
 
 ### Types of Servers Based on the Type of Request:
 
@@ -127,6 +136,9 @@ Let's illustrate how the internet and servers work together:
 </section>
 
 ---
+
+<br>
+<br>
 
 <section id=03>
 
@@ -188,6 +200,9 @@ Often in real-world web development:
 
 ---
 
+<br>
+<br>
+
 <section id=04>
 
 ## Types of Applications
@@ -216,6 +231,8 @@ A **standalone application** is a software program that runs independently on a 
 **DevOps View:** If you're managing a standalone application, you don’t need to deal with backend infrastructure like databases, APIs, or cloud platforms. Most of the operations are handled on the device itself.
 
 </section>
+
+<br>
 
 <section id=04_02>
 
@@ -273,6 +290,9 @@ Understanding this difference helps you decide:
 
 ---
 
+<br>
+<br>
+
 <section id=05>
 
 ## What is Application Support?
@@ -325,6 +345,9 @@ From a DevOps perspective, Application Support involves:
 </section>
 
 ---
+
+<br>
+<br>
 
 <section id=06>
 
@@ -380,6 +403,9 @@ So as a DevOps engineer, learning Linux is mandatory.
 </section>
 
 ---
+
+<br>
+<br>
 
 <section id=07>
 
@@ -461,6 +487,9 @@ Here’s a breakdown:
 
 ---
 
+<br>
+<br>
+
 <section id=09>
 
 ## Software & Tools to Access a Remote Server or System
@@ -516,6 +545,9 @@ Suppose you are not physically near your laptop or server, but you still want to
 </section>
 
 ---
+
+<br>
+<br>
 
 <section id=10>
 
@@ -585,6 +617,9 @@ Other bootloaders: LILO (Linux Loader), SYSLINUX. But GRUB is the most used and 
 
 ---
 
+<br>
+<br>
+
 <section id=11>
 
 ## Linux System Architecture
@@ -624,15 +659,7 @@ Let’s say you want to turn off a webcam:
 4.  The kernel talks to the hardware and disables the webcam.
 
 ### 🧠 Diagram Representation:
-```
-Applications / Utilities
-       ↑
-     Shell
-       ↑
-     Kernel
-       ↑
-     Hardware
-```
+![alt text](SS_02/linux_architecture.png)
 
 ### ✅ Summary:
 
@@ -647,6 +674,9 @@ Applications / Utilities
 
 ---
 
+<br>
+<br>
+
 <section id=12>
 
 ## What is Linux File System?
@@ -654,6 +684,8 @@ Applications / Utilities
 The **Linux File System** is how files and directories (folders) are organized in Linux.
 
 ✅ **Key Point:** Everything in Linux starts from a single **root directory**, represented by a forward slash `/`. From this root `/`, all other directories branch out like a tree. Whether it's your personal files, software, devices, or system configurations—everything is under `/`.
+
+![alt text](SS_02/file_system.png)
 
 ### 🗂️ Common Folders Under Root `/`:
 
@@ -681,6 +713,9 @@ The **Linux File System** is how files and directories (folders) are organized i
 </section>
 
 ---
+
+<br>
+<br>
 
 <section id=13>
 
