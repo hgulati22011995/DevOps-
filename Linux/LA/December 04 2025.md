@@ -110,6 +110,25 @@ mkfs.ext4 /dev/vg_data/lv_data
 mount /dev/vg_data/lv_data /mnt
 ```
 
+```bash
+# Resize Logical Volume (e.g., increase by 5GB)
+lvextend -L +5G /dev/vg_data/lv_data
+# -L: specify new size or +size to increase
+
+# Resize filesystem to use new space
+resize2fs /dev/vg_data/lv_data
+
+# Reduce Logical Volume (e.g., decrease by 2GB) - DANGEROUS
+# 1. First, shrink filesystem
+resize2fs /dev/vg_data/lv_data 8G
+
+# 2. Then reduce LV size
+lvreduce -L 8G /dev/vg_data/lv_data
+
+# 3. Verify
+df -h /mnt
+```
+
 **Status Commands:** `pvs` (Physical), `vgs` (Groups), `lvs` (Logical).
 
 ---
@@ -129,9 +148,15 @@ mount /dev/vg_data/lv_data /mnt
 A process is any running program.
 
 **Tools:**
+* `ps`: View current terminal processes.
 * `ps aux`: Snapshot of all running processes.
 * `top` / `htop`: Real-time interactive view of CPU/RAM usage.
 * `kill [PID]`: Stop a process by ID.
+* `killall [process_name]`: Stop all instances of a process.
+* `nice` / `renice`: Adjust process priority.
+* `free -h`: Check RAM usage.
+* `vmstat`: System performance metrics.
+* `kill -9 [PID]`: Force kill a stubborn process.
 * `uptime`: System load averages.
 
 ### Systemd & Services
@@ -144,6 +169,14 @@ sudo systemctl start sshd  # Start service
 sudo systemctl stop sshd   # Stop service
 sudo systemctl restart sshd # Restart service
 sudo systemctl enable sshd # Start automatically on BOOT
+sudo systemctl disable sshd # Disable auto-start on BOOT
+sudo systemctl list-units --type=service  # List all services
+sudo systemctl is-active sshd  # Check if service is active
+sudo systemctl is-enabled sshd # Check if service is enabled at boot
+sudo systemctl reload sshd  # Reload config without stopping
+sudo systemctl daemon-reload  # Reload systemd manager config
+sudo systemctl mask sshd   # Prevent service from starting
+sudo systemctl unmask sshd # Allow service to start again
 ```
 
 ### System Targets & Logs
@@ -158,6 +191,13 @@ journalctl           # View all logs
 journalctl -u sshd   # View logs for SSH service only
 journalctl -f        # Follow live logs (Real-time)
 journalctl -xe       # View recent error logs
+# xe : e for extended, shows more details about errors.
+journalctl --since "2025-12-01" --until "2025-12-04 12:00"  # Logs between specific dates/times
+journalctl -p err..alert  # View logs with priority from error to alert
+# p : priority level filter
+
+journalctl --disk-usage  # Check journal log size
+journalctl --vacuum-size=100M  # Reduce log size to 100MB
 ```
 *Note: `/var/log` stores traditional plain-text log files (syslog, auth.log).*
 
