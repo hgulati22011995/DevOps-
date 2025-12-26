@@ -4,15 +4,54 @@ In this file I am preparing my system for building a full Active Directory and L
 
 ---
 
+<br>
+<br>
+
 ## Understanding What VMware Workstation Is
 
-VMware Workstation is an application that enables virtualization on a desktop or laptop. Virtualization means running multiple operating systems at the same time on a single physical machine by creating virtual computers. These virtual computers are known as virtual machines. Each virtual machine behaves like a separate physical server even though it shares the hardware resources of my host system.
+<mark><b>VMware Workstation</b></mark> is an application that enables virtualization on a desktop or laptop. <mark><b>Virtualization</b></mark> means running multiple operating systems at the same time on a single physical machine by creating virtual computers. These virtual computers are known as <mark><b>virtual machines</b></mark>. Each virtual machine behaves like a separate physical server even though it shares the hardware resources of my host system.
 
-VMware itself is called a hypervisor. A hypervisor is a software layer that manages and allocates physical resources such as CPU cores, memory, storage space, and network interfaces to each virtual machine. VMware Workstation is often called a Type-2 hypervisor because it runs on top of a regular operating system like Windows or Linux. A Type-1 hypervisor would run directly on bare metal without a host OS, but that is not what I am using here.
+VMware itself is called a hypervisor. A <mark><b>hypervisor</b></mark> is a software layer that manages and allocates physical resources such as CPU cores, memory, storage space, and network interfaces to each virtual machine. VMware Workstation is often called <mark><b>a Type-2 hypervisor</b></mark> because it runs on top of a regular operating system like Windows or Linux. A Type-1 hypervisor would run directly on bare metal without a host OS, but that is not what I am using here.
 
-Inside VMware I can create a virtual environment with multiple servers, each acting as if it were on its own physical hardware. This is exactly what I will use to build a domain controller, a Linux server that joins the domain, and later various security configurations. The advantage is that I am not risking my real system and I can rebuild or revert easily.
+Inside VMware I can create a virtual environment with multiple servers, each acting as if it were on its own physical hardware. This is exactly what I will use to build <mark><b>a domain controller</b></mark>, a Linux server that joins the domain, and later various security configurations. The advantage is that I am not risking my real system and I can rebuild or revert easily.
+
+<br>
+<details>
+<summary><b>Type-1 Hypervisor (bare-metal)</b></summary>
+<br>
+
+A Type-1 hypervisor <mark><b>runs directly on the hardware</b></mark>. There’s no operating system in between.
+Because of that, it’s faster, more secure, and used in data centers.
+
+Examples I’d see in real enterprise environments:
+- VMware ESXi
+- Microsoft Hyper-V
+- KVM
+
+I basically treat the server itself as the hypervisor.
+
+</details>
+
+<br>
+<details>
+<summary><b>Type-2 Hypervisor (hosted)</b></summary>
+<br>
+
+A Type-2 hypervisor <mark><b>runs on top of a normal operating system</b></mark>.
+So first I install Windows or Linux, and then I install the hypervisor as a software application.
+
+Examples I use in labs:
+- VMware Workstation
+- VirtualBox
+This is great for learning, but not ideal for enterprise production performance.
+
+</details>
+<br>
 
 ---
+
+<br>
+<br>
 
 ## Why I Need VMware for This Lab
 
@@ -29,11 +68,14 @@ Creating this kind of environment without virtualization would require multiple 
 
 ---
 
+<br>
+<br>
+
 ## Host System Requirements and Why They Matter
 
-Before installing VMware or creating virtual machines, I need to make sure my host computer has enough resources. The host system is the physical laptop or desktop that will run VMware Workstation.
+- Before installing VMware or creating virtual machines, I need to make sure my host computer has enough resources. The host system is the physical laptop or desktop that will run VMware Workstation.
 
-I must consider several resource categories because each virtual machine uses part of the host's resources.
+- I must consider several resource categories because each virtual machine uses part of the host's resources.
 
 ### CPU requirements
 Modern multi-core processors are required because each VM needs at least one or two CPU cores. If the CPU is too weak, running multiple servers will become very slow. The hypervisor schedules CPU time between the virtual machines, and inadequate resources cause noticeable lag.
@@ -49,6 +91,9 @@ Most modern CPUs include virtualization extensions such as Intel VT-x or AMD-V. 
 
 ---
 
+<br>
+<br>
+
 ## Installing VMware Workstation
 
 To install VMware Workstation, I download the installer from the official VMware website. There are two main editions: VMware Workstation Pro and VMware Workstation Player. The Player edition is free for personal use, but the Pro edition offers more features. For my learning lab, VMware Workstation Pro gives me the best environment, especially when I start doing more advanced networking and snapshots.
@@ -56,6 +101,9 @@ To install VMware Workstation, I download the installer from the official VMware
 When installing, I usually accept the default options. The installer places the VMware components, creates helper services, and sets up virtual networking drivers. After installation, I should reboot the host computer so the virtualization services initialize properly.
 
 ---
+
+<br>
+<br>
 
 ## Preparing Storage for Virtual Machines
 
@@ -65,32 +113,44 @@ It is useful to have a dedicated folder such as "VMs" on a large drive. Keeping 
 
 ---
 
+<br>
+<br>
+
 ## Understanding VMware Virtual Disks
 
-When I create a virtual machine, VMware asks for a disk size. The disk inside the virtual machine is not a physical disk but a file known as a virtual disk. VMware uses the .vmdk format for these files. From within the VM, the operating system sees it as a standard hard disk.
+- When I create a virtual machine, VMware asks for a disk size. The disk inside the virtual machine is not a physical disk but a file known as <mark><b>a virtual disk</b></mark>. VMware uses the <mark><b>.vmdk</b></mark> format for these files. From within the VM, the operating system sees it as a standard hard disk.
 
-I can choose thin provisioning so that the virtual disk file grows only as data is written. Thick provisioning allocates the full size immediately, which uses more space but may offer slightly better performance. For learning and testing, thin provisioning is practical.
+- I can choose <mark><b>thin provisioning</b></mark> so that the virtual disk file grows only as data is written. <mark><b>Thick provisioning</b></mark> allocates the full size immediately, which uses more space but may offer slightly better performance. For learning and testing, thin provisioning is practical.
 
 ---
+
+<br>
+<br>
 
 ## Understanding Virtual CPUs and Memory
 
-VMware allows me to assign virtual CPUs and virtual memory to each VM. Assigning more resources improves performance, but I must avoid oversubscribing my host system. If I assign too much RAM to VMs, the host OS itself will starve and everything will become slow.
+- VMware allows me to assign virtual CPUs and virtual memory to each VM. Assigning more resources improves performance, but I must avoid oversubscribing my host system. If I assign too much RAM to VMs, the host OS itself will starve and everything will become slow.
 
-As a general idea, Windows Server usually performs well with at least two virtual CPU cores and around six to eight gigabytes of RAM. Rocky Linux is lighter, and two to four gigabytes will often be enough for domain integration and security practice. I will adjust resources later based on performance.
+- As a general idea, Windows Server usually performs well with at least two virtual CPU cores and around six to eight gigabytes of RAM. Rocky Linux is lighter, and two to four gigabytes will often be enough for domain integration and security practice. I will adjust resources later based on performance.
 
 ---
+
+<br>
+<br>
 
 ## First Launch of VMware
 
-After installation, I start VMware Workstation and review the interface. The key areas are the virtual machine library on the left, the main workspace, and the menus for creating new VMs. I also verify that the virtualization engine shows no warnings. If VMware reports that virtualization is disabled, I need to correct that in BIOS or UEFI before continuing.
+- After installation, I start VMware Workstation and review the interface. The key areas are the virtual machine library on the left, the main workspace, and the menus for creating new VMs. I also verify that the virtualization engine shows no warnings. If VMware reports that virtualization is disabled, I need to correct that in BIOS or UEFI before continuing.
 
-At this stage I do not create a VM yet. First I make sure VMware is functioning properly, the host has virtualization enabled, and I have enough storage space. Then I can begin creating the Windows Server and Rocky Linux virtual machines separately in their own detailed setup files.
+- At this stage I do not create a VM yet. First I make sure VMware is functioning properly, the host has virtualization enabled, and I have enough storage space. Then I can begin creating the Windows Server and Rocky Linux virtual machines separately in their own detailed setup files.
 
 ---
 
+<br>
+<br>
+
 ## What I Achieve After This File
 
-After completing the setup described here, my system is ready to host virtual machines. I understand what virtualization is, why VMware Workstation is necessary for this project, and what resources my system must provide. I also know why proper hardware requirements and virtualization support matter for stable and realistic lab environments.
+- After completing the setup described here, my system is ready to host virtual machines. I understand what virtualization is, why VMware Workstation is necessary for this project, and what resources my system must provide. I also know why proper hardware requirements and virtualization support matter for stable and realistic lab environments.
 
-The next file will focus on installing Windows Server 2022 as a virtual machine and preparing it for domain controller promotion.
+- The next file will focus on installing Windows Server 2022 as a virtual machine and preparing it for domain controller promotion.
